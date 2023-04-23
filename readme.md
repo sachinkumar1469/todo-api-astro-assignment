@@ -33,7 +33,7 @@ $ npm start
 | POST /api/user/signup | Register a user | Open | { "name": "string", "email": "string", "password": "string", "role": "string" } | | { "Authorization": "string" } | { "token": "string"} |
 | POST /api/user/signin | Login a user | Open | { "email": "string", "password": "string" } | | { "token": "string" } |
 | POST /api/todo/create | Create a new todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
-| GET /api/todo/all | Get all todos of the user | Authenticated | | { "token": "string" } | [{ "todos": "todos" }] |
+| GET /api/todo/all | Get all todos of the user | Authenticated | | { "Authorization": "string" } | [{ "todos": "todos" }] |
 | PUT /api/todo/update/:id | Update the Todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
 | PUT /api/todo/change-status/:id | Chagne the status of todo | Authenticated | {"status": "string"} | { "Authorization": "string" } | { "todo": "todo" } |
 | DELETE api/todo/delete/:id | Delete the Todo | 
