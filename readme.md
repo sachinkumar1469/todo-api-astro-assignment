@@ -21,31 +21,34 @@ $ npm start
 - Get a single todo
 - Update a todo
 - Delete a todo
-- Admin get all users
-- Admin get a single user
-- Admin update a user
-- Admin delete a user
-- Send remainder email for tasks
+- Role based access control
+- Role : "USER", "ADMIN"
+- Password Hashing using BcryptJs
+- Nodemailer to send reminder mails
+- Task schedulers
+
 ## Usage
-### Api Endpoints
+### Api Endpoints (Role: "USER","ADMIN")
 | Endpoint | Functionality | Access | Body | Headers | Response |
 | --- | --- | --- | --- | --- | --- |
-| POST /api/user/signup | Register a user | Open | { "name": "string", "email": "string", "password": "string", "role": "string" } | | { "Authorization": "string" } | { "token": "string"} |
-| POST /api/user/signin | Login a user | Open | { "email": "string", "password": "string" } | | { "token": "string" } |
-| POST /api/todo/create | Create a new todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
-| GET /api/todo/all | Get all todos of the user | Authenticated | | { "Authorization": "string" } | [{ "todos": "todos" }] |
-| PUT /api/todo/update/:id | Update the Todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
-| PUT /api/todo/change-status/:id | Chagne the status of todo | Authenticated | {"status": "string"} | { "Authorization": "string" } | { "todo": "todo" } |
-| DELETE api/todo/delete/:id | Delete the Todo | 
+| POST /api/user/signup | Register a user | Open | { "name": "string", "email": "string", "password": "string", "role": "string" } | | { "token": "string" } | { "token": "string"} |
+| POST  /api/user/signin | Login a user | Open | { "email": "string", "password": "string" } | | { "token": "string" } |
+| POST  /api/todo/create | Create a new todo | Authenticated | { "title": "string", "description":"string" } | Authorization  | { "todo": "todo" } |
+| GET   /api/todo/all | Get all todos of the user | Authenticated | | Authorization | [{ "todos": "todos" }] |
+| PUT   /api/todo/update/:id | Update the Todo | Authenticated | { "title": "string", "description":"string" } |  Authorization  | { "todo": "todo" } |
+| PUT   /api/todo/change-status/:id | Chagne the status of todo | Authenticated | {"status": "string"} | Authorization  | { "todo": "todo" } |
+| DELETE /api/todo/delete/:id | Delete the Todo | Authenticated | | Authorization | {"message":"string"}
 
-| Admin Endpoints | Functionality |
-| --- | --- |
-| GET /api/admin/all | Get all users |
-| GET /api/admin/:id | Get a single user |
-| DELETE /api/admin/:id | Delete a user |
+### Api Endpoints (Role: "ADMIN")
+| Admin Endpoints | Functionality | Access | Body | Headers | Response
+| --- | --- | --- | --- | --- | --- |
+| GET /api/admin/all | Get all users | Admin | | Authorization | [{"user":"user"}]
+| GET /api/admin/:id | Get a single user | Admin | | Authorization | {"user":"user"}
+| DELETE /api/admin/:id | Delete a user | Admin | | Authorization | {"message":"string"}
 
 ## Scheduler
 - The scheduler is set to send an email to the user every 2 hours to remind them of their tasks.
+- Scheduler will run for every five minutes.
 
 ## Technologies
 - NodeJs
