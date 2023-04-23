@@ -29,7 +29,7 @@ $ npm start
 ## Usage
 ### Api Endpoints
 | Endpoint | Functionality | Access | Body | Headers | Response |
-| --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | POST /api/user/signup | Register a user | Open | { "name": "string", "email": "string", "password": "string", "role": "string" } | | { "Authorization": "string" } | { "token": "string"} |
 | POST /api/user/signin | Login a user | Open | { "email": "string", "password": "string" } | | { "token": "string" } |
 | POST /api/todo/create | Create a new todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
