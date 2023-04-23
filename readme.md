@@ -3,7 +3,7 @@
 This is a simple Todo-List API made with NodeJs, Express and MongoDB.
 ## Installation
 ### Clone
-- Clone this repo to your local machine using `
+- Clone this repo to your local machine using `https://github.com/sachinkumar1469/todo-api-astro-assignment.git`
 ### Setup
 > install npm packages
 ```shell
