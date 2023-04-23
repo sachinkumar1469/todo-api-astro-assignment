@@ -36,7 +36,7 @@ $ npm start
 | GET /api/todo/all | Get all todos of the user | Authenticated | | { "token": "string" } | [{ "todos": "todos" }] |
 | PUT /api/todo/update/:id | Update the Todo | Authenticated | { "title": "string", "description":"string" } | { "Authorization": "string" } | { "todo": "todo" } |
 | PUT /api/todo/change-status/:id | Chagne the status of todo | Authenticated | {"status": "string"} | { "Authorization": "string" } | { "todo": "todo" } |
-| DELETE api/todo/delete/:id | Delete the Todo |
+| DELETE api/todo/delete/:id | Delete the Todo | 
 
 | Admin Endpoints | Functionality |
 | --- | --- |
