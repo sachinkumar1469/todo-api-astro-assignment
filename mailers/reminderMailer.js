@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 exports.sendReminderEmail = (email, task) => {
     const mailOptions = {
-        from: 'ny@gmail.com',
+        from: 'ny72161100@gmail.com',
         to: email,
         subject: 'Reminder for your task',
         text: `Hi, this is a reminder for your task: ${task}`

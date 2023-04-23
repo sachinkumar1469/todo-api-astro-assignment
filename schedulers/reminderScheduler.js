@@ -12,7 +12,7 @@ schedule.scheduleJob('*/5 * * * *', async function(){
     const twoHoursAge = new Date(Date.now() - 2*60*60*1000);
     const tasks = await Task.find({createdAt: {$lt: twoHoursAge}}).lean();
     for(let task of tasks){
-        sendReminderEmail(task.user.email, task.task);
+        sendReminderEmail(task.user.email, task.title);
     }
 });
 

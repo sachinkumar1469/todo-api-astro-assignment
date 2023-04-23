@@ -13,7 +13,6 @@ const checkAuthentication = (req, res, next) => {
     }
     try {
         const decoded = jwt.verify(token, env.JWT_SECRET);
-        console.log(decoded," ",Date.now());
         req.user = decoded.user;
         next();
     } catch (err) {
